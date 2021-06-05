@@ -15,6 +15,7 @@ buildscript {
     val compile_sdk_version by extra(30)
     val target_sdk_version by extra(30)
     val sqlDelightVersion by extra("1.5.0")
+    val jetPackComposeVersion by extra("1.0.0-beta07")
 
 
 

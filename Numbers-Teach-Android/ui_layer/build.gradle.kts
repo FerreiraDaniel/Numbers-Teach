@@ -27,7 +27,7 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions{
-        jvmTarget = "11"
+        jvmTarget = rootProject.extra["jvm_target"] as String
 
         useIR = true
 

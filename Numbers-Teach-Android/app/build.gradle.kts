@@ -17,7 +17,24 @@ android {
 
     kotlinOptions {
         jvmTarget = rootProject.extra["jvm_target"] as String
+        useIR = true
     }
+
+    buildFeatures {
+        compose = true
+        // Disable unused AGP features
+        buildConfig = false
+        aidl = false
+        renderScript = false
+        resValues = false
+        shaders = false
+    }
+
+    composeOptions {
+        kotlinCompilerVersion = "1.4.32"
+        kotlinCompilerExtensionVersion = "1.0.0-beta07"
+    }
+
 
     defaultConfig {
         applicationId = "com.dferreira.numbers_teach"
@@ -54,8 +71,25 @@ dependencies {
     implementation(project(":domain_layer"))
     implementation("androidx.core:core-ktx:${rootProject.extra["core_version"]}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.extra["kotlin_version"]}")
+    implementation("androidx.compose.ui:ui:${rootProject.extra["jetPackComposeVersion"]}")
+    // Tooling support (Previews, etc.)
+    implementation("androidx.compose.ui:ui-tooling:${rootProject.extra["jetPackComposeVersion"]}")
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation("androidx.compose.foundation:foundation:${rootProject.extra["jetPackComposeVersion"]}")
+    // Material Design
+    implementation("androidx.compose.material:material:${rootProject.extra["jetPackComposeVersion"]}")
+    // Material design icons
+    implementation("androidx.compose.material:material-icons-core:${rootProject.extra["jetPackComposeVersion"]}")
+    implementation("androidx.compose.material:material-icons-extended:${rootProject.extra["jetPackComposeVersion"]}")
+    // Integration with observables
+    implementation("androidx.compose.runtime:runtime-livedata:${rootProject.extra["jetPackComposeVersion"]}")
+    implementation("androidx.compose.runtime:runtime-rxjava2:${rootProject.extra["jetPackComposeVersion"]}")
+
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.squareup.sqldelight:sqlite-driver:${rootProject.extra["sqlDelightVersion"]}")
+
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["jetPackComposeVersion"]}")
 
 
 }
