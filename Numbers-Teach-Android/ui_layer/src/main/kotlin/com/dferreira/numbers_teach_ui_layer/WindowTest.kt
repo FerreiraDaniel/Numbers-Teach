@@ -1,3 +1,5 @@
+package com.dferreira.numbers_teach_ui_layer
+
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow

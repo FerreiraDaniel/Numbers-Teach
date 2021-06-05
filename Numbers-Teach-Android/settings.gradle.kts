@@ -5,7 +5,7 @@ pluginManagement {
     }
 
 }
-rootProject.name = "ComposeForDesktop"
+rootProject.name = "Numbers Teach"
 
 include (":app")
 include (":numbers")
@@ -17,3 +17,4 @@ include(":audio_device_layer")
 include(":data_layer")
 include(":domain_layer")
 include(":desktop_app")
+include(":android_ui_layer")
