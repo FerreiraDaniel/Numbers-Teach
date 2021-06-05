@@ -1,1 +1,6 @@
 Numbers-Teach-Android/.idea/
+Numbers-Teach-Android/audio_device_layer/build/
+Numbers-Teach-Android/data_layer/build/
+Numbers-Teach-Android/desktop_app/build/
+Numbers-Teach-Android/domain_layer/build/
+Numbers-Teach-Android/ui_layer/build/
