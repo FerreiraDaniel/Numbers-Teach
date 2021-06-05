@@ -1,8 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    val kotlin_version by extra("1.5.0")
-    val kotlinGradlePlugin by extra("1.5.0")
+    val kotlin_version by extra("1.4.30") //Desktop
+    //val kotlin_version by extra("1.5.0") //Android
+    val kotlinGradlePlugin by extra("1.4.30")
+    //val kotlinGradlePlugin by extra("1.5.0") //Android
     val build_tools_version by extra("30.0.3")
     val material_design_version by extra("1.3.0")
     val core_version by extra("1.5.0")
