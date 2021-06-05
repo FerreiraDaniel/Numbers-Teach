@@ -51,6 +51,7 @@ dependencies {
     implementation(project(":exercise_icons"))
     implementation(project(":commons"))
     implementation(project(":numbers"))
+    implementation(project(":domain_layer"))
     implementation("androidx.core:core-ktx:${rootProject.extra["core_version"]}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.extra["kotlin_version"]}")
     testImplementation("junit:junit:4.13.2")

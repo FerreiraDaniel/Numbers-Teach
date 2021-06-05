@@ -7,13 +7,11 @@ pluginManagement {
 }
 rootProject.name = "ComposeForDesktop"
 
-/*
 include (":app")
 include (":numbers")
 include (":languages_dashboard")
 include (":exercise_icons")
 include (":commons")
-*/
 include(":ui_layer")
 include(":audio_device_layer")
 include(":data_layer")

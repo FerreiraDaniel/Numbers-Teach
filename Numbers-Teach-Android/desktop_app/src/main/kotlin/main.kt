@@ -10,7 +10,7 @@ fun main() = Window {
     takeLessonUseCase.updateUIPresenter(windowTest)
     windowTest.setEventsHandler(takeLessonUseCase.getEventHandler())
     GlobalScope.launch {
-        delay(2000)
+        delay(1000)
 
         takeLessonUseCase.startLesson()
 
