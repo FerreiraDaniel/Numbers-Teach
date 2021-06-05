@@ -35,26 +35,6 @@ class WindowTest : IWindowTest, ITakeLessonUIPresenter {
 
         MaterialTheme {
             Scaffold(
-                topBar = {
-                    TopAppBar(
-                        title = {
-                            Text(text = "Bottom app bar example")
-                        },
-
-                        navigationIcon = {
-                            IconButton(
-                                onClick = {
-                                    println("test")
-                                }
-                            ) {
-                                Icon(Icons.Filled.Menu, contentDescription = "content description")
-                            }
-                        },
-
-                        backgroundColor = Color(0xFF00CC99),
-                        elevation = AppBarDefaults.TopAppBarElevation
-                    )
-                },
                 content = {
                     Box(
                         modifier = Modifier

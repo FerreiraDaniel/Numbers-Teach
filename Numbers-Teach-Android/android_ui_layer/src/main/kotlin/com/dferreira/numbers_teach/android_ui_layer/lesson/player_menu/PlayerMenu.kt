@@ -1,4 +1,4 @@
-package com.dferreira.numbers_teach.android_ui_layer.lesson
+package com.dferreira.numbers_teach.android_ui_layer.lesson.player_menu
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -19,7 +19,7 @@ import com.dferreira.numbers_teach.android_ui_layer.R
 
 @Preview(name = "Player menu")
 @Composable
-fun PreviewPlayerMenu() {
+private fun PreviewPlayerMenu() {
     val state = PlayerMenuState("XX20", false)
     PlayerMenu(
         state,
@@ -52,7 +52,7 @@ fun PlayerMenu(
 
 @Preview(name = "Player menu buttons")
 @Composable
-fun PreviewPlayerMenuButtons() {
+private fun PreviewPlayerMenuButtons() {
     val state = PlayerMenuState("12/20", true)
     PlayerMenuButtons(
         state,
