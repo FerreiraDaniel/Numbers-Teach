@@ -2,19 +2,20 @@ package com.dferreira.numbers_teach.android_ui_layer.lesson.lesson_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.dferreira.numbers_teach.android_ui_layer.R
 import com.dferreira.numbers_teach.android_ui_layer.lesson.player_menu.PlayerMenu
 import com.dferreira.numbers_teach.android_ui_layer.lesson.player_menu.PlayerMenuState
 import com.dferreira.numbers_teach.android_ui_layer.lesson.slide_list_item.SlideListItem
 import com.dferreira.numbers_teach.android_ui_layer.theme.Color
+import com.dferreira.numbers_teach.android_ui_layer.theme.Size
 
 @Preview(name = "Lesson screen")
 @Composable
@@ -43,8 +44,11 @@ fun LessonScreen(
         content = {
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.red)
+                    .fillMaxHeight()
+                    .background(Color.white)
+                    .padding(end = Size.smallBorder,
+                    bottom = Size.smallBorder
+                    )
             ) {
                 val state = rememberLazyListState()
                 val itemCount = 100
@@ -54,7 +58,9 @@ fun LessonScreen(
                         state = state
                     ) {
                         items(itemCount) { x ->
-                            SlideListItem()
+                            SlideListItem("title$x",
+                                painterResource(R.drawable.white_drop_icon)
+                                )
                         }
                     }
                 }
