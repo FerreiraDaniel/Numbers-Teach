@@ -26,7 +26,7 @@ buildscript {
         maven(url = "https://jetbrains.bintray.com/intellij-third-party-dependencies")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.1.0-alpha01")
+        classpath("com.android.tools.build:gradle:7.1.0-alpha02")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePlugin")
         classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
 
