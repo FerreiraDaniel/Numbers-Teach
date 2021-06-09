@@ -4,3 +4,6 @@ Numbers-Teach-Android/data_layer/build/
 Numbers-Teach-Android/desktop_app/build/
 Numbers-Teach-Android/domain_layer/build/
 Numbers-Teach-Android/ui_layer/build/
+Numbers-Teach-Android/desktop_audio_device_layer/build/
+Numbers-Teach-Android/desktop_ui_layer/build/
+Numbers-Teach-Android/interface_adapter/build/
