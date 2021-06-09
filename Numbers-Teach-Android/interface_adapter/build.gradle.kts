@@ -8,7 +8,7 @@ group = "me.ebtfed"
 version = "1.0"
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["kotlin_coroutines_version"]}")
+    implementation(project(":domain_layer"))
     testImplementation(kotlin("test"))
 }
 
@@ -16,6 +16,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile> {
+tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "1.8"
 }

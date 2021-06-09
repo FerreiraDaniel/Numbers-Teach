@@ -16,10 +16,11 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":ui_layer"))
-    implementation(project(":audio_device_layer"))
-    implementation(project(":data_layer"))
     implementation(project(":domain_layer"))
+    implementation(project(":interface_adapter"))
+    implementation(project(":data_layer"))
+    implementation(project(":desktop_ui_layer"))
+    implementation(project(":desktop_audio_device_layer"))
     implementation(compose.desktop.currentOs)
     testImplementation(kotlin("test"))
 }

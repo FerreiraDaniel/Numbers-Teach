@@ -2,6 +2,7 @@
 
 buildscript {
     val kotlin_version by extra("1.4.30") //Desktop
+    val kotlin_coroutines_version by extra("1.5.0")
     //val kotlin_version by extra("1.5.0") //Android
     val kotlinGradlePlugin by extra("1.4.30")
     //val kotlinGradlePlugin by extra("1.5.0") //Android

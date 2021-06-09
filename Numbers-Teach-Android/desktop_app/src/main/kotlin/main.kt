@@ -1,22 +1,41 @@
 import androidx.compose.desktop.Window
-import com.dferreira.numbers_teach_ui_layer.WindowTest
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import use_case.take_lesson.TakeLessonUseCase
+import com.dferreira.numbers_teach_ui_layer.WindowTestImpl
+import com.dferreira.numbers_teach.domain_layer.use_case.take_lesson.TakeLessonUseCaseImpl
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 
+
+@InternalCoroutinesApi
 fun main() = Window {
-    val takeLessonUseCase = TakeLessonUseCase()
-    val windowTest = WindowTest()
-    takeLessonUseCase.updateUIPresenter(windowTest)
-    windowTest.setEventsHandler(takeLessonUseCase.getEventHandler())
+    val takeLessonUseCase = TakeLessonUseCaseImpl()
+    val windowTest = WindowTestImpl()
+
+
     GlobalScope.launch {
+
+
+        async {
+            takeLessonUseCase.startLesson()
+        }
+
+
+        takeLessonUseCase
+            .state
+            .collect {state -> print("state: $state ")}
+
+        println("out of collect")
         delay(1000)
 
-        takeLessonUseCase.startLesson()
+
+        takeLessonUseCase
+            .state
+            .collect {state -> print("state: $state")}
+
+        delay(10000)
+
 
     }
-
 
     windowTest.mainUiLayer()
 }

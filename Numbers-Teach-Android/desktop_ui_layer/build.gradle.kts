@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":domain_layer"))
+    implementation(project(":interface_adapter"))
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
 }
@@ -43,7 +43,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ui_layer"
+            packageName = "desktop_ui_layer"
             packageVersion = "1.0.0"
         }
     }
