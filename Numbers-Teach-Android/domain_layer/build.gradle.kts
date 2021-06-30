@@ -9,7 +9,10 @@ version = "1.0"
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["kotlin_coroutines_version"]}")
+    implementation("org.junit.jupiter:junit-jupiter-api:${rootProject.extra["junit_version"]}")
+    implementation("org.junit.jupiter:junit-jupiter-engine:${rootProject.extra["junit_version"]}")
     testImplementation(kotlin("test"))
+
 }
 
 tasks.test {
