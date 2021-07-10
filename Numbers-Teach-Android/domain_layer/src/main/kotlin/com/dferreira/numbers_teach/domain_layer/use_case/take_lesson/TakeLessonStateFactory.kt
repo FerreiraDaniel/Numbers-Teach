@@ -25,79 +25,79 @@ class TakeLessonStateFactory {
     }
 
     fun createSlideListLoaded(
-        slideList: List<Slide>,
-        currentSlide: Slide,
         languageSelected: SupportedLanguageEnum,
-        autoPlayNewSlide: Boolean
+        autoPlayNewSlide: Boolean,
+        slideList: List<Slide>,
+        currentSlide: Slide
     ): SlideListLoaded {
         return SlideListLoaded(
-            slideList,
-            currentSlide,
             languageSelected,
-            autoPlayNewSlide
+            autoPlayNewSlide,
+            slideList,
+            currentSlide
         )
     }
 
     fun createLoadingSlideData(
-        slideList: List<Slide>,
-        currentSlide: Slide,
         languageSelected: SupportedLanguageEnum,
-        autoPlayNewSlide: Boolean
+        autoPlayNewSlide: Boolean,
+        slideList: List<Slide>,
+        currentSlide: Slide
     ): LoadingSlideData {
         return LoadingSlideData(
-            slideList,
-            currentSlide,
             languageSelected,
-            autoPlayNewSlide
+            autoPlayNewSlide,
+            slideList,
+            currentSlide
         )
     }
 
 
     fun createSlideDataLoaded(
-        slideData: SlideData,
+        languageSelected: SupportedLanguageEnum,
+        autoPlayNewSlide: Boolean,
         slideList: List<Slide>,
         currentSlide: Slide,
-        languageSelected: SupportedLanguageEnum,
-        autoPlayNewSlide: Boolean
+        slideData: SlideData
     ): SlideDataLoaded {
         return SlideDataLoaded(
-            slideData,
+            languageSelected,
+            autoPlayNewSlide,
             slideList,
             currentSlide,
-            languageSelected,
-            autoPlayNewSlide
+            slideData
         )
     }
 
     fun createPlayingSlide(
-        slideData: SlideData,
+        languageSelected: SupportedLanguageEnum,
+        autoPlayNewSlide: Boolean,
         slideList: List<Slide>,
         currentSlide: Slide,
-        languageSelected: SupportedLanguageEnum,
-        autoPlayNewSlide: Boolean
+        slideData: SlideData
     ): PlayingSlide {
         return PlayingSlide(
-            slideData,
+            languageSelected,
+            autoPlayNewSlide,
             slideList,
             currentSlide,
-            languageSelected,
-            autoPlayNewSlide
+            slideData
         )
     }
 
     fun createSlidePlayed(
-        slideData: SlideData,
+        languageSelected: SupportedLanguageEnum,
+        autoPlayNewSlide: Boolean,
         slideList: List<Slide>,
         currentSlide: Slide,
-        languageSelected: SupportedLanguageEnum,
-        autoPlayNewSlide: Boolean
+        slideData: SlideData
     ): SlidePlayed {
         return SlidePlayed(
-            slideData,
+            languageSelected,
+            autoPlayNewSlide,
             slideList,
             currentSlide,
-            languageSelected,
-            autoPlayNewSlide
+            slideData
         )
     }
 

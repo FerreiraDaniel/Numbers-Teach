@@ -24,92 +24,92 @@ data class LoadingSlideList(
 )
 
 sealed class SealedSlideListLoaded(
-    val slideList: List<Slide>,
-    val currentSlide: Slide,
     privateLanguageSelected: SupportedLanguageEnum,
-    privateAutoPlayNewSlide: Boolean
+    privateAutoPlayNewSlide: Boolean,
+    val slideList: List<Slide>,
+    val currentSlide: Slide
 ) : TakeLessonState(
     privateLanguageSelected,
     privateAutoPlayNewSlide
 )
 
 data class SlideListLoaded(
-    private val privateSlideList: List<Slide>,
-    private val privateCurrentSlide: Slide,
     private val privateLanguageSelected: SupportedLanguageEnum,
-    private val privateAutoPlayNewSlide: Boolean
+    private val privateAutoPlayNewSlide: Boolean,
+    private val privateSlideList: List<Slide>,
+    private val privateCurrentSlide: Slide
 ) : SealedSlideListLoaded(
-    privateSlideList,
-    privateCurrentSlide,
     privateLanguageSelected,
-    privateAutoPlayNewSlide
+    privateAutoPlayNewSlide,
+    privateSlideList,
+    privateCurrentSlide
 )
 
 data class LoadingSlideData(
-    private val privateSlideList: List<Slide>,
-    private val privateCurrentSlide: Slide,
     private val privateLanguageSelected: SupportedLanguageEnum,
-    private val privateAutoPlayNewSlide: Boolean
+    private val privateAutoPlayNewSlide: Boolean,
+    private val privateSlideList: List<Slide>,
+    private val privateCurrentSlide: Slide
 ) : SealedSlideListLoaded(
-    slideList = privateSlideList,
-    currentSlide = privateCurrentSlide,
     privateLanguageSelected,
-    privateAutoPlayNewSlide
+    privateAutoPlayNewSlide,
+    slideList = privateSlideList,
+    currentSlide = privateCurrentSlide
 )
 
 sealed class SealedSlideDataLoaded(
-    val slideData: SlideData,
+    private val privateLanguageSelected: SupportedLanguageEnum,
+    private val privateAutoPlayNewSlide: Boolean,
     private val privateSlideList: List<Slide>,
     private val privateCurrentSlide: Slide,
-    private val privateLanguageSelected: SupportedLanguageEnum,
-    private val privateAutoPlayNewSlide: Boolean
+    val slideData: SlideData
 ) : SealedSlideListLoaded(
-    privateSlideList,
-    privateCurrentSlide,
     privateLanguageSelected,
-    privateAutoPlayNewSlide
+    privateAutoPlayNewSlide,
+    privateSlideList,
+    privateCurrentSlide
 )
 
 data class SlideDataLoaded(
-    private val privateSlideData: SlideData,
+    private val privateLanguageSelected: SupportedLanguageEnum,
+    private val privateAutoPlayNewSlide: Boolean,
     private val privateSlideList: List<Slide>,
     private val privateCurrentSlide: Slide,
-    private val privateLanguageSelected: SupportedLanguageEnum,
-    private val privateAutoPlayNewSlide: Boolean
+    private val privateSlideData: SlideData
 ) : SealedSlideDataLoaded(
-    privateSlideData,
+    privateLanguageSelected,
+    privateAutoPlayNewSlide,
     privateSlideList,
     privateCurrentSlide,
-    privateLanguageSelected,
-    privateAutoPlayNewSlide
+    privateSlideData
 )
 
 data class PlayingSlide(
-    private val privateSlideData: SlideData,
+    private val privateLanguageSelected: SupportedLanguageEnum,
+    private val privateAutoPlayNewSlide: Boolean,
     private val privateSlideList: List<Slide>,
     private val privateCurrentSlide: Slide,
-    private val privateLanguageSelected: SupportedLanguageEnum,
-    private val privateAutoPlayNewSlide: Boolean
+    private val privateSlideData: SlideData
 ) : SealedSlideDataLoaded(
-    privateSlideData,
+    privateLanguageSelected,
+    privateAutoPlayNewSlide,
     privateSlideList,
     privateCurrentSlide,
-    privateLanguageSelected,
-    privateAutoPlayNewSlide
+    privateSlideData
 )
 
 data class SlidePlayed(
-    private val privateSlideData: SlideData,
+    private val privateLanguageSelected: SupportedLanguageEnum,
+    private val privateAutoPlayNewSlide: Boolean,
     private val privateSlideList: List<Slide>,
     private val privateCurrentSlide: Slide,
-    private val privateLanguageSelected: SupportedLanguageEnum,
-    private val privateAutoPlayNewSlide: Boolean
+    private val privateSlideData: SlideData
 ) : SealedSlideDataLoaded(
-    privateSlideData,
+    privateLanguageSelected,
+    privateAutoPlayNewSlide,
     privateSlideList,
     privateCurrentSlide,
-    privateLanguageSelected,
-    privateAutoPlayNewSlide
+    privateSlideData
 )
 
 data class Completed(
