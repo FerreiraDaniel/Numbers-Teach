@@ -7,13 +7,18 @@ import com.dferreira.numbers_teach.domain_layer.entity.SupportedLanguageEnum
 sealed class TakeLessonState(
     val languageSelected: SupportedLanguageEnum,
     val autoPlayNewSlide: Boolean
-)
+) : ITakeLessonState
 
 data class NotStarted(
     private val privateLanguageSelected: SupportedLanguageEnum,
     private val privateAutoPlayNewSlide: Boolean
 ) :
-    TakeLessonState(privateLanguageSelected, privateAutoPlayNewSlide)
+    TakeLessonState(privateLanguageSelected, privateAutoPlayNewSlide) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 data class LoadingSlideList(
     private val privateLanguageSelected: SupportedLanguageEnum,
@@ -21,7 +26,12 @@ data class LoadingSlideList(
 ) : TakeLessonState(
     privateLanguageSelected,
     privateAutoPlayNewSlide
-)
+) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 sealed class SealedSlideListLoaded(
     privateLanguageSelected: SupportedLanguageEnum,
@@ -43,7 +53,12 @@ data class SlideListLoaded(
     privateAutoPlayNewSlide,
     privateSlideList,
     privateCurrentSlide
-)
+) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 data class LoadingSlideData(
     private val privateLanguageSelected: SupportedLanguageEnum,
@@ -55,7 +70,12 @@ data class LoadingSlideData(
     privateAutoPlayNewSlide,
     slideList = privateSlideList,
     currentSlide = privateCurrentSlide
-)
+) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 sealed class SealedSlideDataLoaded(
     private val privateLanguageSelected: SupportedLanguageEnum,
@@ -82,7 +102,12 @@ data class SlideDataLoaded(
     privateSlideList,
     privateCurrentSlide,
     privateSlideData
-)
+) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 data class PlayingSlide(
     private val privateLanguageSelected: SupportedLanguageEnum,
@@ -96,7 +121,12 @@ data class PlayingSlide(
     privateSlideList,
     privateCurrentSlide,
     privateSlideData
-)
+) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 data class SlidePlayed(
     private val privateLanguageSelected: SupportedLanguageEnum,
@@ -110,10 +140,20 @@ data class SlidePlayed(
     privateSlideList,
     privateCurrentSlide,
     privateSlideData
-)
+) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}
 
 data class Completed(
     private val privateLanguageSelected: SupportedLanguageEnum,
     private val privateAutoPlayNewSlide: Boolean
 ) :
-    TakeLessonState(privateLanguageSelected, privateAutoPlayNewSlide)
+    TakeLessonState(privateLanguageSelected, privateAutoPlayNewSlide) {
+
+    override fun copyState(autoPlayNewSlide: Boolean): TakeLessonState {
+        return copy(privateAutoPlayNewSlide = autoPlayNewSlide)
+    }
+}

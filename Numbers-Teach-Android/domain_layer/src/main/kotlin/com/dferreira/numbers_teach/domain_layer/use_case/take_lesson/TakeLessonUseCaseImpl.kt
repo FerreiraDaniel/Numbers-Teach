@@ -5,31 +5,43 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class TakeLessonUseCaseImpl(
-    private val languageSelected: SupportedLanguageEnum,
-    private val autoPlayNewSlide: Boolean
-    ) :
+    initialLanguageSelected: SupportedLanguageEnum,
+    initialAutoPlayNewSlide: Boolean
+) :
     TakeLessonUseCase {
 
     private val stateFactory = TakeLessonStateFactory()
 
     private var _state: MutableStateFlow<TakeLessonState> = MutableStateFlow(
         stateFactory.createNotStarted(
-            languageSelected,
-            autoPlayNewSlide
-            )
+            initialLanguageSelected,
+            initialAutoPlayNewSlide
+        )
     )
 
     override val state: StateFlow<TakeLessonState>
         get() = _state
 
+
+
+    override suspend fun setAutoPlayNewSlide(autoPlayNewSlide: Boolean) {
+        val latestState = currentState()
+        val newState = latestState.copyState(autoPlayNewSlide)
+        emitState(newState)
+    }
+
+    override suspend fun startLesson() {
+        val latestState = currentState()
+        val newState = stateFactory.createLoadingSlideList(
+            latestState.languageSelected,
+            latestState.autoPlayNewSlide
+        )
+        emitState(newState)
+    }
+
     private fun currentState() = _state.value
 
-    override suspend fun startLesson(language: SupportedLanguageEnum) {
-        var latestState = currentState()
-        val newState = stateFactory.createLoadingSlideList(
-            languageSelected,
-            autoPlayNewSlide
-        )
+    private fun emitState(newState: TakeLessonState) {
         this._state.value = newState
     }
 }

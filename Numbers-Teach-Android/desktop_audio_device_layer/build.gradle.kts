@@ -8,7 +8,7 @@ group = "me.ebtfed"
 version = "1.0"
 
 dependencies {
-    implementation(project(":domain_layer"))
+    implementation(project(":interface_adapter"))
     testImplementation(kotlin("test"))
 }
 
